@@ -9,6 +9,34 @@ const newsList = document.getElementById('news-list');
 const newsStatus = document.getElementById('news-status');
 let newsRefreshInterval = null;
 
+const rumiNewsData = [
+  {
+    title: "Rumi Discovers Ancient Demon Containment Spell",
+    summary: "K-pop sensation Rumi shocked the demon hunter community by discovering a lost incantation during a secret ritual. The spell is said to neutralize even the most powerful demonic entities.",
+    url: "#rumi-news-1"
+  },
+  {
+    title: "Rumi Performs Live Concert While Fighting Demons",
+    summary: "In an unprecedented display of multitasking, Rumi simultaneously performed her latest K-pop hit while battling shadow demons. Fans are calling it the most iconic concert moment of the decade.",
+    url: "#rumi-news-2"
+  },
+  {
+    title: "Rumi's Demon Hunter Training Goes Viral on Social Media",
+    summary: "Behind-the-scenes clips of Rumi's intense training regimen have accumulated 50 million views. Critics praise her dedication to both her music career and demon hunting profession.",
+    url: "#rumi-news-3"
+  },
+  {
+    title: "Exclusive: Rumi Releases Demon Hunter Survival Guide",
+    summary: "Rumi has authored a comprehensive guide on surviving demonic encounters while maintaining a thriving K-pop career. The book became a bestseller within hours of release.",
+    url: "#rumi-news-4"
+  },
+  {
+    title: "Rumi Teams Up with Fellow Hunters for Epic Battle",
+    summary: "Rumi joined forces with other elite demon hunters to face off against a legendary boss demon. The collaboration has fans excited for potential future projects.",
+    url: "#rumi-news-5"
+  }
+];
+
 function createTodoItem(text) {
   const li = document.createElement('li');
   li.className = 'todo-item';
@@ -109,18 +137,8 @@ async function fetchLatestNews() {
   showNewsLoading();
 
   try {
-    const response = await fetch('https://api.spaceflightnewsapi.net/v4/articles?limit=5');
-    if (!response.ok) throw new Error('Network response was not ok');
-    const data = await response.json();
-    const articles = Array.isArray(data.results) ? data.results : [];
-
-    if (articles.length === 0) {
-      newsStatus.textContent = 'No news available at the moment.';
-      return;
-    }
-
-    newsStatus.textContent = 'Top 5 latest news';
-    articles.forEach((article) => {
+    newsStatus.textContent = 'K-pop Demon Hunters - Rumi News';
+    rumiNewsData.forEach((article) => {
       newsList.appendChild(renderNewsItem(article));
     });
   } catch (error) {
