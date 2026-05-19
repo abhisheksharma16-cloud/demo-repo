@@ -1,0 +1,352 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: light;
+  background: #f4f7fb;
+  color: #1a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at top, #ffffff 0%, #e8f0ff 100%);
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4), transparent 18%),
+    radial-gradient(circle at 80% 35%, rgba(255, 255, 255, 0.25), transparent 14%),
+    radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.2), transparent 22%);
+  opacity: 0.85;
+  pointer-events: none;
+  animation: waterFlow 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.splash-screen,
+.sign-in-screen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #bee7ff 0%, #8cccff 45%, #e0f3ff 100%);
+  z-index: 10;
+}
+
+.splash-screen {
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 35%),
+    linear-gradient(135deg, #c7e9ff 0%, #8cc7ff 35%, #d8f1ff 100%);
+}
+
+.splash-content {
+  position: relative;
+  text-align: center;
+  padding: 40px 36px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 28px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.splash-content::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  filter: blur(18px);
+}
+
+.splash-content h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.splash-content p {
+  margin: 16px 0 0;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.sign-in-card {
+  width: min(460px, 100%);
+  padding: 36px 32px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+  text-align: center;
+}
+
+.sign-in-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.75rem, 2vw, 2.25rem);
+}
+
+.sign-in-card p {
+  margin: 0 0 24px;
+  color: #475569;
+}
+
+.google-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #111827;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+.google-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.app-shell {
+  width: min(560px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+}
+
+.landing-header {
+  margin-bottom: 28px;
+}
+
+.landing-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.landing-header p {
+  margin: 0;
+  color: #475569;
+}
+
+.todo-input-panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#todo-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d7dee9;
+  border-radius: 14px;
+  font-size: 1rem;
+}
+
+#todo-input:focus {
+  outline: none;
+  border-color: #7b9cff;
+  box-shadow: 0 0 0 4px rgba(123, 156, 255, 0.15);
+}
+
+#add-button {
+  padding: 14px 22px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#add-button:hover {
+  transform: translateY(-1px);
+  background: #4338ca;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: #f8fbff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+}
+
+.todo-text {
+  margin: 0;
+  word-break: break-word;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #64748b;
+  opacity: 0.7;
+}
+
+.delete-button {
+  border: none;
+  background: #f87171;
+  color: white;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #ef4444;
+}
+
+.todo-empty {
+  color: #6b7280;
+  text-align: center;
+  padding: 24px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+}
+
+.news-panel {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(242, 249, 255, 0.95), #ffffff);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.news-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.news-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.news-header p {
+  margin: 0;
+  color: #475569;
+}
+
+.news-status {
+  color: #2563eb;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.news-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.6);
+  border-radius: 999px;
+}
+
+.news-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.news-item {
+  padding: 18px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+}
+
+.news-item h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.news-item p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.news-item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+@keyframes waterFlow {
+  0% {
+    transform: translate(0, 0) scale(1.02);
+    background-position: 0% 0%, 100% 20%, 50% 80%;
+  }
+  50% {
+    transform: translate(-18px, 8px) scale(1.03);
+    background-position: 10% 10%, 90% 30%, 50% 78%;
+  }
+  100% {
+    transform: translate(-32px, 18px) scale(1.04);
+    background-position: 20% 18%, 80% 40%, 50% 75%;
+  }
+}

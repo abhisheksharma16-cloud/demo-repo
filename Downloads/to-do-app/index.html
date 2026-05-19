@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="splash-screen" id="splash-screen">
+      <div class="splash-content">
+        <div class="logo-glow"></div>
+        <h1>To-do list</h1>
+        <p>Launching your productivity space...</p>
+      </div>
+    </div>
+
+    <div class="sign-in-screen hidden" id="sign-in-screen">
+      <div class="sign-in-card">
+        <h2>Sign In</h2>
+        <p>Continue with Google to open your to-do manager.</p>
+        <button id="google-sign-in" class="google-button">
+          <span class="google-icon">G</span>
+          Sign In with Google
+        </button>
+      </div>
+    </div>
+
+    <main class="app-shell hidden" id="app-shell">
+      <div class="landing-header">
+        <h1>To-App</h1>
+        <p>Welcome! Add tasks below to keep your day organized.</p>
+      </div>
+
+      <section class="todo-input-panel">
+        <input id="todo-input" type="text" placeholder="Add a new task" />
+        <button id="add-button">Add Todo</button>
+      </section>
+
+      <ul id="todo-list" class="todo-list"></ul>
+
+      <section class="news-panel">
+        <div class="news-header">
+          <h2>Latest News</h2>
+          <p>Real-time headlines to keep you informed while you plan.</p>
+        </div>
+        <div id="news-status" class="news-status">Loading news…</div>
+        <ul id="news-list" class="news-list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
